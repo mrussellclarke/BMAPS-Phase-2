@@ -83,7 +83,7 @@ public class BisonMaps {
 			new BuildingList();
 			break;
 		case 4:
-		
+			new DeptLoc();
 			break;
 		case 5:
 		
