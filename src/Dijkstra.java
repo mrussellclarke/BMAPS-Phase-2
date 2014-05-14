@@ -35,9 +35,9 @@ public class Dijkstra {
         System.out.println(" ");
                 
         System.out.print("Directions from ");
-        new DataConnect(s);
-        System.out.print(" to ");
         new DataConnect(d);
+        System.out.print(" to ");
+        new DataConnect(s);
                 
         System.out.println(" ");
         
