@@ -5,6 +5,7 @@ public class DataConnect {
 
 	/**
 	 * @param args
+	 * @return 
 	 */
 /*	public static void main(String[] args) {
 		
@@ -64,11 +65,11 @@ public class DataConnect {
 			//
 			while(rs2.next()) {
 				//
-				String sid = rs2.getString("SID*");
+				//String sid = rs2.getString("SID*");
 				//
 				String name = rs2.getString("Name");
 				//
-				System.out.println(" Name = " + name);
+				System.out.print(name);
 			}
 			//******************************************************
 
