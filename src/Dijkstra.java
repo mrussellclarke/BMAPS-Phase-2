@@ -32,10 +32,19 @@ public class Dijkstra {
         
         for(int i=0; i<80; i++)
         System.out.print("=");
-        System.out.println();
+        System.out.println(" ");
+                
+        System.out.print("Directions from ");
+        new DataConnect(s);
+        System.out.print(" to ");
+        new DataConnect(d);
+                
+        System.out.println(" ");
         
         for (int v = d; v != s; v = pred[v]){
         	new DataConnect(v);
+        	System.out.println(" ");
+        	
         	//System.out.print(v + "-");
         }
         new DataConnect(s);
