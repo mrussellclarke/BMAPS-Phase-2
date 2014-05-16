@@ -30,9 +30,11 @@ public class Dijkstra {
             return;
         }
         
+        /*
         for(int i=0; i<80; i++)
         System.out.print("=");
         System.out.println(" ");
+        */
                 
         System.out.print("Directions from ");
         new DataConnect(d);
@@ -43,12 +45,13 @@ public class Dijkstra {
         
         for (int v = d; v != s; v = pred[v]){
         	new DataConnect(v);
+        	System.out.print(" to ");
+        	new DataConnect(pred[v]);
         	System.out.println(" ");
         	
         	//System.out.print(v + "-");
         }
-        new DataConnect(s);
-        //System.out.println(s);
+        //new DataConnect(s);
     }
 
     // Dijkstra's algorithm to find shortest path from s to d
