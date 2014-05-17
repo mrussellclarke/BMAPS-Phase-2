@@ -208,7 +208,7 @@ public class BisonMaps {
 				new BuildingList();
 				break;
 			case 4:
-				
+				new UtilityList();
 				break;
 			case 5:
 				new DeptLoc();
