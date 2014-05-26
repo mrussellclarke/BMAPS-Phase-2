@@ -65,8 +65,6 @@ public class DataConnect {
 			//
 			while(rs2.next()) {
 				//
-				//String sid = rs2.getString("SID*");
-				//
 				String name = rs2.getString("Name");
 				//
 				System.out.print(name);
