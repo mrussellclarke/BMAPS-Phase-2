@@ -44,29 +44,35 @@ public class EuclideanGraph {
     *  node: id x y
     *  edge: from to
     *******************************************************************/
-    public EuclideanGraph(In in) {
-        V = Integer.parseInt(in.readString());
-        E = Integer.parseInt(in.readString());
-
+    public EuclideanGraph() {
+    	
+    	BuildGraph graphBoi = new BuildGraph();
+    	
+        V = graphBoi.Outline("NodeLocation");
+        E = graphBoi.Outline("Graph");
+        
         // read in and insert vertices
         points = new Point[V];
         for (int i = 0; i < V; i++) {
-            int v = Integer.parseInt(in.readString());
-            int x = Integer.parseInt(in.readString());
-            int y = Integer.parseInt(in.readString());
+        	
+            int v = graphBoi.PointId(i);
+            int x = graphBoi.PointX(i);
+            int y = graphBoi.PointY(i);
             if (v < 0 || v >= V) throw new RuntimeException("Illegal vertex number");
             points[v] = new Point(x, y);
+            System.out.println("Loading map vertices...");
         }
-
+        
         // read in and insert edges
         adj = new Node[V];
         for (int i = 0; i < E; i++) {
-            int v = Integer.parseInt(in.readString());
-            int w = Integer.parseInt(in.readString());
+            int v = graphBoi.Start(i);
+            int w = graphBoi.Dest(i);
             if (v < 0 || v >= V) throw new RuntimeException("Illegal vertex number");
             if (w < 0 || w >= V) throw new RuntimeException("Illegal vertex number");
             adj[v] = new Node(w, adj[v]);
             adj[w] = new Node(v, adj[w]);
+            System.out.println("Loading map edges...");
         }
     }
 
@@ -103,8 +109,8 @@ public class EuclideanGraph {
 
     // test client
     public static void main(String args[]) {
-        In in = new In(args[0]);
-        EuclideanGraph G = new EuclideanGraph(in);
+        //In in = new In(args[0]);
+        EuclideanGraph G = new EuclideanGraph();
         System.out.println(G);
     }
 
