@@ -16,6 +16,14 @@ import java.sql.*;
 public class BisonMaps {
 
     public static void main(String[] args) {
+    	
+    	System.out.println("Loading map of campus...");
+		
+		// read in the graph from a file
+		//In graphin = new In(args[0]); //Declares new object graphin of type In and sets value to function In with arguments called with program
+		EuclideanGraph G = new EuclideanGraph();//Declares object G of type EuclideanGraph and calls with file graphin
+		    		
+		Dijkstra dijkstra = new Dijkstra(G);
 		
     	System.out.println("1. Get Directions");
     	System.out.println("2. Find campus resources");
@@ -38,12 +46,6 @@ public class BisonMaps {
     		System.out.println("");
         	System.out.println("You chose "+ ans);
     		System.out.println("");
-    		
-			// read in the graph from a file
-    		In graphin = new In(args[0]); //Declares new object graphin of type In and sets value to function In with arguments called with program
-			EuclideanGraph G = new EuclideanGraph(graphin);//Declares object G of type EuclideanGraph and calls with file graphin
-			    		
-			Dijkstra dijkstra = new Dijkstra(G);
 		
 			switch(ans){
 			case 1:
@@ -77,8 +79,13 @@ public class BisonMaps {
 				System.out.print("Enter option (1 - 9): ");
 				int rqst = StdIn.readInt();
 				
-				if(rqst==9)
+				if(rqst<1 || rqst>8){
+					if(rqst!=9)
+						System.out.println("You entered an invalid option.");
+					
+					System.out.println("You are being returned to the main menu.");
 					break;
+				}
 				
 				System.out.print("Enter origin location (Building): ");
 				int bldg = StdIn.readInt();
@@ -152,7 +159,7 @@ public class BisonMaps {
 					case 8:
 						rsc = new String("BusStop");
 						resource = new String("shuttle bus stop");
-						break;					
+						break;
 					}
 					
 					String query = "SELECT * FROM \"NodeLayer\" WHERE \"" + rsc + "\" = 1";
