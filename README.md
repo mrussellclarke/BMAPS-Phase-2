@@ -8,3 +8,4 @@ Additional features include
   -Displaying directions to a resource from any building
   -Displaying locations of all departments on campus
   -Displaying all resources on campus
+  -Reads locations from database of campus locations
